@@ -1,0 +1,9 @@
+/* Basic CSS for styling */
+body {
+	font-family: Arial, sans-serif;
+	margin: 20px;
+}
+.container {
+	width: 400px;
+	margin: 0 auto;
+}
