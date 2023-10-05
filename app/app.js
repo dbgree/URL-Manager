@@ -1,6 +1,21 @@
 // Initialize an empty array to store the URLs
 let urls = [];
 
+// Function to fetch and load the JSON data
+async function loadJSON() {
+	try {
+		const response = await fetch('resource/urls.json');
+		if (!response.ok) {
+			throw new Error('Failed to fetch data');
+		}
+		const data = await response.json();
+		urls = data;
+		displayURLs();
+	} catch (error) {
+		console.error('Error loading JSON data:', error);
+	}
+}
+
 // Function to add a URL
 function addURL() {
 	const category = document.getElementById("category").value;
@@ -53,3 +68,6 @@ function deleteURL(index) {
 		displayURLs();
 	}
 }
+
+// Load JSON data when the page loads
+window.addEventListener('load', loadJSON);
